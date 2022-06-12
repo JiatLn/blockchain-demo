@@ -1,5 +1,6 @@
 import type { AxiosError, Method } from 'axios'
 import requests from '@/api/request'
+import type { ApiError } from '@/api/types'
 
 export interface HTTPConfig {
   url: string
@@ -20,7 +21,7 @@ const useHttp = <T>(config: HTTPConfig): Promise<T> => {
         resolve(resp.data)
       })
       .catch((err: AxiosError) => {
-        reject(err)
+        reject(err.response?.data)
       })
   })
 }

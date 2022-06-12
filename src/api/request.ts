@@ -1,3 +1,4 @@
+import type { AxiosError } from 'axios'
 import axios from 'axios'
 
 const requests = axios.create({
@@ -15,7 +16,7 @@ requests.interceptors.response.use(
   (resp) => {
     return Promise.resolve(resp)
   },
-  (error) => {
+  (error: AxiosError) => {
     return Promise.reject(error)
   },
 )

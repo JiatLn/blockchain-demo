@@ -1,9 +1,9 @@
 import useHttp from '@/api/useHttp'
 import type { IBlockChain } from '@/type'
 
-export function getBlockChainApi(hashId: string) {
+export function getBlockChainApi(blockHash: string) {
   return useHttp<IBlockChain>({
-    url: `/rawblock/${hashId}`,
+    url: `/rawblock/${blockHash}`,
     method: 'GET',
   })
 }

@@ -22,3 +22,9 @@ export interface IPageParams {
   pageNum: number
   pageSize: number
 }
+
+export interface ApiError {
+  error: string
+  message: string
+
+}
