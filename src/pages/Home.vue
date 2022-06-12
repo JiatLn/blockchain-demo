@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div text="red">
-    hello world
-  </div>
+  <TheSearch />
 </template>
 
 <style lang="scss" scoped>
