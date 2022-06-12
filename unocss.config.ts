@@ -18,7 +18,7 @@ export default defineConfig({
   theme: {
     colors: {
       brand: {
-        primary: '#1890ff',
+        primary: 'orange',
       },
     },
   },

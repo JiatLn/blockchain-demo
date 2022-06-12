@@ -6,13 +6,13 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AppIcon: typeof import('./components/common/AppIcon.vue')['default']
+    BlockItem: typeof import('./components/BlockItem.vue')['default']
     LazyImg: typeof import('./components/common/LazyImg.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheHeader: typeof import('./components/TheHeader.vue')['default']
     TheLoading: typeof import('./components/common/TheLoading.vue')['default']
     TheResult: typeof import('./components/TheResult.vue')['default']
-    TheSearch: typeof import('./components/TheSearch.vue')['default']
   }
 }
 

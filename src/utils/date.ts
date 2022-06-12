@@ -8,6 +8,6 @@ export const getTodayWeek = () => {
   return `星期${'日一二三四五六'.charAt(new Date().getDay())}`
 }
 
-export const formatDate = (data: Date, template = 'YYYY-MM-DD') => {
+export const formatDate = (data: string | number | Date, template = 'YYYY-MM-DD') => {
   return dayjs(new Date(data)).format(template)
 }

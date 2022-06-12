@@ -1,21 +1,23 @@
 export interface IBlockChain {
   hash: string
-  ver: number
+  ver: number | string
   prev_block: string
   mrkl_root: string
-  time: number
-  bits: number
+  time: number | string
+  bits: number | string
   next_block: string[]
-  fee: number
-  nonce: number
-  n_tx: number
-  size: number
+  fee: number | string
+  nonce: number | string
+  n_tx: number | string
+  size: number | string
   block_index: number
   main_chain: boolean
-  height: number
-  weight: number
+  height: number | string
+  weight: number | string
   tx: ITx[]
 }
+
+export type BlockChainSummary = Omit<IBlockChain, 'tx' | 'prev_block' | 'next_block'>
 
 export interface ITx {
   hash: string
