@@ -1,6 +1,5 @@
 import type { AxiosError, Method } from 'axios'
 import requests from '@/api/request'
-import type { ApiError } from '@/api/types'
 
 export interface HTTPConfig {
   url: string
