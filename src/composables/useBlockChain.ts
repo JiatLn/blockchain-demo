@@ -22,6 +22,7 @@ export function useBlockChain(blockHash: Ref<string>) {
     loading.value = false
   }
   refresh()
+  watch(blockHash, refresh)
   return {
     blockChain,
     errorMsg,
