@@ -2,7 +2,7 @@ import type { AxiosError } from 'axios'
 import axios from 'axios'
 
 const requests = axios.create({
-  baseURL: import.meta.env.VITE_BASE_API,
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 20 * 1000,
 })
 

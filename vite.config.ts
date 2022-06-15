@@ -1,8 +1,7 @@
 import * as path from 'path'
 import { defineConfig, loadEnv } from 'vite'
-
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import Vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import PurgeIcons from 'vite-plugin-purge-icons'
@@ -12,15 +11,17 @@ import Unocss from 'unocss/vite'
 export default ({ mode }) => {
   // 加载 .env.[mode]
   const config = loadEnv(mode, './')
+  console.warn('config ', config)
   return defineConfig({
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@/': `${path.resolve(__dirname, 'src')}/`,
+        '~/': `${path.resolve(__dirname, 'src')}/`,
       },
     },
     plugins: [
-      vue(),
-      vueJsx(),
+      Vue(),
+      VueJsx(),
       Unocss(),
       PurgeIcons({
         /* PurgeIcons Options */
@@ -45,19 +46,6 @@ export default ({ mode }) => {
         resolvers: [],
       }),
     ],
-    server: {
-      host: '0.0.0.0',
-      proxy: {
-        [config.VITE_BASE_API]: {
-          target: config.VITE_API_URL,
-          changeOrigin: true,
-          rewrite: (path) => {
-            const reg = new RegExp(`^${config.VITE_BASE_API}`)
-            return path.replace(reg, '')
-          },
-        },
-      },
-    },
     // to solve warning: "@charset" must be the first rule in the file
     css: {
       preprocessorOptions: {
